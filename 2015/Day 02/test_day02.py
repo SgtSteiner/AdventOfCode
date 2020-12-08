@@ -1,23 +1,16 @@
 import unittest
 
-from solve import calc_floor, call_basement
+from solve import feet_paper, feet_ribbon
 
 
 class MyTestCase(unittest.TestCase):
-    def test_floor(self):
-        self.assertEqual(calc_floor(list("(())")), 0)
-        self.assertEqual(calc_floor(list("()()")), 0)
-        self.assertEqual(calc_floor(list("(((")), 3)
-        self.assertEqual(calc_floor(list("(()(()(")), 3)
-        self.assertEqual(calc_floor(list("))(((((")), 3)
-        self.assertEqual(calc_floor(list("())")), -1)
-        self.assertEqual(calc_floor(list("))(")), -1)
-        self.assertEqual(calc_floor(list(")))")), -3)
-        self.assertEqual(calc_floor(list(")())())")), -3)
+    def test_feet_paper(self):
+        self.assertEqual(feet_paper(["2x3x4"]), 58)
+        self.assertEqual(feet_paper(["1x1x10"]), 43)
 
-    def test_basement(self):
-        self.assertEqual(call_basement(list(")")), 1)
-        self.assertEqual(call_basement(list("()())")), 5)
+    def test_feet_ribbon(self):
+        self.assertEqual(feet_ribbon(["2x3x4"]), 34)
+        self.assertEqual(feet_ribbon(["1x1x10"]), 14)
 
 
 if __name__ == '__main__':
