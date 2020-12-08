@@ -46,19 +46,14 @@ def read_instruction(instruction):
     return action, row_start, col_start, row_end, col_end
 
 
-def action_lights(instructions):
+def action_grid(instructions, tipo):
     grid = [[0] * 1000 for i in range(1000)]
     for instruction in instructions:
         action, row_start, col_start, row_end, col_end = read_instruction(instruction)
-        turn_lights(grid, action, row_start, col_start, row_end, col_end)
-    return np.sum(grid)
-
-
-def action_brightness(instructions):
-    grid = [[0] * 1000 for i in range(1000)]
-    for instruction in instructions:
-        action, row_start, col_start, row_end, col_end = read_instruction(instruction)
-        turn_brightness(grid, action, row_start, col_start, row_end, col_end)
+        if tipo == "lights":
+            turn_lights(grid, action, row_start, col_start, row_end, col_end)
+        else:
+            turn_brightness(grid, action, row_start, col_start, row_end, col_end)
     return np.sum(grid)
 
 
@@ -66,5 +61,5 @@ if __name__ == "__main__":
 
     instructions = read_input()
 
-    print(f"Part One - There are {action_lights(instructions)} lights on")
-    print(f"Part Two - Total brightness are {action_brightness(instructions)}")
+    print(f"Part One - There are {action_grid(instructions, 'lights')} lights on")
+    print(f"Part Two - Total brightness are {action_grid(instructions, 'brightness')}")
