@@ -12,15 +12,6 @@ def read_input():
     
 if __name__ == "__main__":
     assignments  = [item.rstrip('\n').split(",") for item in read_input()]
-    """ assignments = [
-        "2-4,6-8".split(","),
-        "2-3,4-5".split(","),
-        "5-7,7-9".split(","),
-        "2-8,3-7".split(","),
-        "6-6,4-6".split(","),
-        "2-6,4-8".split(","),
-    ] """
-    
     total_fully_contain = 0
     total_ranges_overlap = 0
     for assignment in assignments:
